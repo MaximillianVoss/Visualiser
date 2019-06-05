@@ -1,8 +1,7 @@
 package Parse;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -59,6 +58,30 @@ public class FileIO {
                 map.put(items[0], items[1]);
         }
         return map;
+    }
+
+
+    public static void WriteLine(String fileName, String line, boolean newLine) throws IOException {
+        File fout = new File(fileName);
+        FileOutputStream fos = new FileOutputStream(fout);
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+        bw.write(line);
+        if (newLine)
+            bw.newLine();
+        bw.close();
+    }
+
+    public static void WriteAllLines(String fileName, ArrayList<String> lines, boolean newLine) throws IOException {
+        File fout = new File(fileName);
+        FileOutputStream fos = new FileOutputStream(fout);
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+        for (int i = 0; i < lines.size(); i++) {
+            bw.write(lines.get(i));
+            if (newLine)
+                bw.newLine();
+        }
+
+        bw.close();
     }
 
 }
