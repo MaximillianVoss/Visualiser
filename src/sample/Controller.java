@@ -65,6 +65,7 @@ public class Controller {
     private String timeTitle = "Время (мс)";
     private String errorTitle = "Ошибка";
 
+    
     public void initialize() {
         this.currentItemIndex = -1;
         this.fromIndex = -1;
